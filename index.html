@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Emp Promotion Predict</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      background-color: lightpurple;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .login {
+      width: 50%;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: Pacifico, cursive;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    .btn-primary {
+      background-color: #3498db;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .btn-primary:hover {
+      background-color: #2980b9;
+    }
+
+    #prediction_text {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <h1>Predict Employee Promotion</h1>
+
+    <form action="{{ url_for('predict') }}" method="post">
+      <input type="number" min="0" name="experience" placeholder="No. of trainings" required="required" />
+      <input type="number" min="0" name="test_score" placeholder="Age" required="required" />
+      <input type="number" min="0" name="interview_score" placeholder="Previous year rating" required="required" />
+      <input type="number" min="0" name="interview_score" placeholder="Length of service" required="required" />
+      <input type="number" min="0" name="interview_score" placeholder="Avg Training score" required="required" />
+      <input type="number" min="0" name="interview_score" placeholder="Performance" required="required" />
+      <input type="number" min="0" name="interview_score" placeholder="Total Score" required="required" />
+
+      <button type="submit" class="btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <br>
+    <br>
+    <span id="prediction_text">{{ prediction_text }}</span>
+  </div>
+</body>
+</html>
