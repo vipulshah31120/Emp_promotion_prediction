@@ -1,4 +1,4 @@
-python>=3.11.7
+python>=3.11.8
 Flask==1.1.1
 gunicorn==19.1.0
 itsdangerous==1.1.0
